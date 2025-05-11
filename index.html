@@ -1,25 +1,41 @@
-<!DOCTYPE html>
+￼Enter file contents here
+ <!DOCTYPE html>
 <html>
 <head>
   <title>Happy Mother's Day</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       background-color: #fff0f5;
       font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       text-align: center;
-      padding: 50px 20px;
+      overflow: hidden;
+      position: relative;
+      padding: 20px;
       color: #c2185b;
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 2.5em;
       margin-bottom: 10px;
       animation: fadeIn 2s ease-in;
     }
 
     p {
-      font-size: 1.3em;
+      font-size: 1.1em;
       margin-bottom: 20px;
+      max-width: 90vw;
     }
 
     button {
@@ -27,7 +43,7 @@
       color: white;
       border: none;
       padding: 12px 24px;
-      border-radius: 20px;
+      border-radius: 25px;
       font-size: 1em;
       cursor: pointer;
       box-shadow: 0 4px 6px rgba(0,0,0,0.2);
@@ -39,9 +55,12 @@
     }
 
     .heart {
-      font-size: 3em;
-      margin-top: 20px;
-      animation: pulse 1.5s infinite;
+      position: absolute;
+      font-size: 24px;
+      animation: floatUp 5s linear infinite;
+      color: red;
+      opacity: 0.8;
+      pointer-events: none;
     }
 
     @keyframes fadeIn {
@@ -49,22 +68,39 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Happy Mother's Day!</h1>
   <p>To the most powerful coder of my life,<br>you compile love, logic, and strength into every heartbeat.</p>
-  <button onclick="showLove()">Click Me</button>
-  <div class="heart">❤️</div>
+  <button onclick="releaseHearts()">Click Me</button>
 
   <script>
-    function showLove() {
-      alert("Love you Mumma! You are my favorite constant in this ever-changing world.");
-      console.log("You're not just a parent—you’re my first and forever superhero.");
+    function releaseHearts() {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+
+      alert("Love you Maa! You're the heart of my code and the soul of my smile.");
     }
   </script>
 </body>
