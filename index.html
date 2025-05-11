@@ -4,30 +4,67 @@
   <title>Happy Mother's Day</title>
   <style>
     body {
-      background: #ffe6f0;
-      color: #d63384;
-      font-family: sans-serif;
+      background-color: #fff0f5;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      padding: 30px;
+      padding: 50px 20px;
+      color: #c2185b;
     }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    p {
+      font-size: 1.3em;
+      margin-bottom: 20px;
+    }
+
     button {
-      padding: 10px 20px;
-      font-size: 18px;
-      background: #fff;
-      color: #d63384;
+      background-color: #c2185b;
+      color: white;
       border: none;
-      border-radius: 10px;
+      padding: 12px 24px;
+      border-radius: 20px;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .heart {
+      font-size: 3em;
+      margin-top: 20px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
     }
   </style>
 </head>
 <body>
-  <h1>Happy Mother's Day, Mom!</h1>
-  <p>You’re the best debugger of my life. Love you!</p>
-  <button onclick="surprise()">Click me!</button>
+  <h1>Happy Mother's Day!</h1>
+  <p>To the most powerful coder of my life,<br>you compile love, logic, and strength into every heartbeat.</p>
+  <button onclick="showLove()">Click Me</button>
+  <div class="heart">❤️</div>
+
   <script>
-    function surprise() {
-      alert("You’re my favorite function with infinite returns!");
-      console.log("To Mom: Your love is the most beautiful logic in my life.");
+    function showLove() {
+      alert("Love you Mumma! You are my favorite constant in this ever-changing world.");
+      console.log("You're not just a parent—you’re my first and forever superhero.");
     }
   </script>
 </body>
